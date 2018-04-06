@@ -1,6 +1,27 @@
+/* Package JSON Import will be here */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './assets/styles/styles.css';
-import { NavBar } from './scenes/sharedComponent';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import AppBar from 'material-ui/AppBar';
+/* Package JSON Import will be here */
 
-ReactDOM.render(<NavBar />, document.getElementById('root'));
+/* Project Import will be here */
+import { NavBar } from './scenes/sharedComponent';
+/* Project Import will be here */
+
+/* Styles Import will be here */
+import './assets/styles/styles.css';
+/* Styles Import will be here */
+
+
+const Main = () => (
+    <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+        <AppBar title="My AppBar" />
+        <NavBar/>
+    </MuiThemeProvider>
+);
+
+
+ReactDOM.render(<Main />, document.getElementById('root'));
