@@ -14,7 +14,6 @@ const PUBLIC_DIR = path.resolve(__dirname, 'public');
 
 /* Plugin Const  will Come Here */
 const extractCSS = new ExtractTextPlugin('static/css/styles.css');
-//const extractSCSS = new ExtractTextPlugin('static/css/[name].styles.css');
 /* Plugin Const  will Come Here */
 
 /* Display Paths */
