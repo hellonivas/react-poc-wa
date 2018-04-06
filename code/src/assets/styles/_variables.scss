@@ -1,0 +1,17 @@
+$choose-color: 'blue'; //Theme Color blue | red | green
+
+@if $choose-color == 'blue' {
+    $theme-color: #2095F2;
+    $theme-second-color: #02A8F4;
+}
+
+@else if $choose-color == 'red' {
+    $theme-color: #FF2300;
+    $theme-dark: #d81e00;
+
+}
+
+@else if $choose-color == 'green' {
+    $theme-color: #259b24;
+    $theme-second-color: #8bc34a;
+}
