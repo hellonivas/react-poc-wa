@@ -15,6 +15,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "webpack": "^3.5.3",
+    "webpack-cli": "^2.0.11",
     "webpack-dev-server": "^2.x",
     "path": "^0.12.7",
     "extract-text-webpack-plugin": "3.0.0",
@@ -27,9 +28,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "wpstart  ": "gulp Generate_CSS && webpack-dev-server --env.dev --progress --config webpack.config.dev.js",
+    "wpstart": "gulp Generate_CSS && webpack-dev-server --env.dev --progress --config webpack.config.dev.js",
     "build": "npm i && gulp Generate_CSS && react-scripts build",
     "wpbuild": "npm run wpclean && webpack -p --progress --config webpack.config.prod.js",
+    "clean": "npm-clean",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "wpclean": "rimraf ./build"
