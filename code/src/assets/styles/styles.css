@@ -5,3 +5,6 @@ Author: Srinivasan Lakshmanan <srinivasan.l@krossark.com> Krossark Inc.
 */
 body {
   margin: 0; }
+
+.no-underline {
+  text-decoration: none; }

@@ -1,5 +1,9 @@
 $choose-color: 'blue'; //Theme Color blue | red | green
 
+
+
+$whiteColor:#ffffff;
+
 @if $choose-color == 'blue' {
     $theme-color: #2095F2;
     $theme-second-color: #02A8F4;

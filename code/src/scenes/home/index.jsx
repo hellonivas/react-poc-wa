@@ -2,18 +2,23 @@
 import React, { Component, Fragment } from 'react';
 /* Package JSON Import will be here */
 
+/* Project Import will be here */
+import  NavBar  from '../sharedComponent/navBar/index.jsx'
+/* Project Import will be here */
+
 /* Styles Import will be here */
-import './navBar.css';
+import './home.css';
 /* Styles Import will be here */
 
-class NavBar extends Component {
+class Home extends Component {
     render() {
         return (
             <Fragment>
-                <h1>NavBars</h1>
+                <NavBar/>
+                <h1>Home</h1>
             </Fragment>
         );
     }
 }
 
-export default NavBar;
+export default Home;

@@ -8,7 +8,7 @@ import AppBar from 'material-ui/AppBar';
 /* Package JSON Import will be here */
 
 /* Project Import will be here */
-import { NavBar } from './scenes/sharedComponent';
+import Routes from './route';
 /* Project Import will be here */
 
 /* Styles Import will be here */
@@ -18,8 +18,7 @@ import './assets/styles/styles.css';
 
 const Main = () => (
     <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-        <AppBar title="My AppBar" />
-        <NavBar/>
+        <Routes />
     </MuiThemeProvider>
 );
 
