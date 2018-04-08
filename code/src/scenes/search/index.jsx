@@ -22,20 +22,22 @@ import './search.css';
 class Search extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            artists: ArtistsData.artists,
+            filtered: ArtistsData.artists,
+            keyword: ''
+        }
     }
-
     componentWillMount() {
-        this.props.moviesList(ArtistsData);
+        this.props.artistsList(ArtistsData);
     }
 
-    renderList = (movies) => {
-        debugger;
-        if (movies) {
-            return movies.artists.map((movie, i) => {
+    renderList = ({ filtered }) => {
+        if (filtered) {
+            return filtered.map((movie, i) => {
                 return (
-                    <Link to={`/Details/${i}`} className="no-underline">
+                    <Link key={i} to={`/Details/${i}`} className="no-underline">
                         <ListItem
-                            key={i}
                             disabled={true}
                             leftAvatar={
                                 <Avatar icon={<FileFolder />} />
@@ -49,19 +51,44 @@ class Search extends Component {
         }
     }
 
+    searchArtist = (e) => {
+        console.log(e.target.value);
+        const keyword = e.target.value;
+        this.setState({ keyword });
+        if (keyword !== '') {
+            const list = this.state.artists.filter((item) => {
+                return item.name.toLowerCase().indexOf(keyword.toLowerCase()) > -1
+            });
+            this.setState({
+                filtered: list,
+                keyword
+            });
+
+        }
+        else {
+            this.setState({
+                filtered: this.state.artists,
+                keyword
+            });
+        }
+    }
+
     render() {
+        const { artists, filtered, keyword } = this.state
         return (
             <Fragment>
                 <NavBar />
                 <h4 className="text-center">Getting Data from JSON Using Redux</h4>
                 <div className="text-center">
                     <TextField
+                        value={keyword}
                         hintText="Enter text to search"
                         floatingLabelText="Search"
+                        onChange={e => this.searchArtist(e)}
                     />
                 </div>
                 <List>
-                    {this.renderList(this.props.Artists)}
+                    {this.renderList(this.state)}
                 </List>
             </Fragment>
         );
@@ -69,7 +96,6 @@ class Search extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log(state);
     return {
         Artists: state.Artists
     }
