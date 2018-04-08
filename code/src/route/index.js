@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 /* Project Import will be here */
 import {
     Home,
-    GetAPI,
+    GetData,
     Search,
     AddDelete,
     LottiAnimation,
@@ -22,7 +22,7 @@ const Routers = () => {
             <Switch>
                 {/*------------------------- Common Routing Pages -------------------------*/}
                 <Route exact path="/" component={Home} />
-                <Route path="/GetAPI" component={GetAPI} />
+                <Route path="/GetData" component={GetData} />
                 <Route path="/Search" component={Search} />
                 <Route path="/AddDelete" component={AddDelete} />
                 <Route path="/LottiAnimation" component={LottiAnimation} />

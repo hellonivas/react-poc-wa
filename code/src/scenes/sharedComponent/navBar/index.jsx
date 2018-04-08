@@ -92,8 +92,8 @@ class NavBar extends Component {
                     onRequestChange={(leftMenuOpen) => this.setState({ leftMenuOpen })}
                 >
                     <Menu>
-                        <Link to={'/GetAPI'} className="no-underline">
-                            <MenuItem primaryText="Get Data from API" leftIcon={<RemoveRedEye />} />
+                        <Link to={'/GetData'} className="no-underline">
+                            <MenuItem primaryText="Get Data" leftIcon={<RemoveRedEye />} />
                         </Link>
                         <Link to={'/Search'} className="no-underline">
                             <MenuItem primaryText="Search" leftIcon={<PersonAdd />} />
