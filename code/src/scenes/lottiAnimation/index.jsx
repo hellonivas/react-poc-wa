@@ -37,7 +37,7 @@ class LottiAnimation extends Component {
         return (
             <Fragment>
                 <NavBar />
-                <h3 className="text-center"> After effect Animation Converted into JSON file and used using Airbnb Lotti package</h3>
+                <h3 className="text-center"> After effect Animation Converted into JSON file and used using Airbnb Lottie package</h3>
                 <Lottie options={defaultOptions}
                     height={400}
                     width={400}

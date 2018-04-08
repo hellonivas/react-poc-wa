@@ -4,6 +4,8 @@ import { Tabs, Tab } from 'material-ui/Tabs';
 /* Package JSON Import will be here */
 
 /* Project Import will be here */
+import CssAnimation from '../../cssAnimation/index.jsx'
+import ApiData from '../../apiData/index.jsx'
 /* Project Import will be here */
 
 /* Styles Import will be here */
@@ -35,21 +37,13 @@ class TabView extends Component {
                     <Tab label="Form JSON File" value="a">
                         <div>
                             <h2 className="headline">Form JSON File</h2>
-                            <p>
-                                Tabs are also controllable if you want to programmatically pass them their values.
-                                This allows for more functionality in Tabs such as not
-                                having any Tab selected or assigning them different values.
-                </p>
+                            <CssAnimation />
                         </div>
                     </Tab>
                     <Tab label="From API" value="b">
                         <div>
-                            <h2 className="headline">From API</h2>
-                            <p>
-                                This is another example of a controllable tab. Remember, if you
-                                use controllable Tabs, you need to give all of your tabs values or else
-                                you wont be able to select them.
-                </p>
+                            <h2 className="headline">From API - (https://jsonplaceholder.typicode.com/users)</h2>
+                            <ApiData/>
                         </div>
                     </Tab>
                 </Tabs>

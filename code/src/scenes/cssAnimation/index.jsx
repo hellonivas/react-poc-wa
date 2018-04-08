@@ -7,7 +7,6 @@ import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 /* Package JSON Import will be here */
 
 /* Project Import will be here */
-import NavBar from '../sharedComponent/navBar/index.jsx';
 import * as configSettings from '../../config/config';
 import * as Data from '../../../database/cssAnimation.json';
 /* Project Import will be here */
@@ -46,14 +45,12 @@ class CssAnimation extends Component {
 
         return (
             <Fragment>
-                <NavBar />
                 <div className="root">
                     <GridList
                         cellHeight={180}
                         className="gridList"
                         cols={4}
                     >
-                        <Subheader>Data are comming form cssAnimation API ()</Subheader>
                         {dataList.map((tile) => (
                             <GridTile
                                 key={tile.img}
