@@ -7,8 +7,9 @@ import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 /* Package JSON Import will be here */
 
 /* Project Import will be here */
-import NavBar from '../sharedComponent/navBar/index.jsx'
-import * as Data from '../../../database/cssAnimation.json'
+import NavBar from '../sharedComponent/navBar/index.jsx';
+import * as configSettings from '../../config/config';
+import * as Data from '../../../database/cssAnimation.json';
 /* Project Import will be here */
 
 /* Styles Import will be here */
@@ -18,11 +19,30 @@ import './cssAnimation.css';
 class CssAnimation extends Component {
     constructor(props) {
         super(props);
-        //console.log(Data.tilesData );
+        this.state = {
+            dataList: Data.tilesData
+        }
     }
+
+    componentWillMount() {
+        // fetch('http://localhost:3001/CssAnimations', {
+        //     method: 'GET',
+        //     headers: {
+        //         'content-type': 'application/json',
+        //         'Accept': 'application/json'
+        //     }
+        // })
+        //     .then(response => response.json())
+        //     .then((response, error) => {
+        //         this.setState({
+        //             dataList: response.tilesData
+        //         });
+        //     });
+    }
+
     render() {
 
-        const { tilesData } = Data;
+        const { dataList } = this.state;
 
         return (
             <Fragment>
@@ -33,8 +53,8 @@ class CssAnimation extends Component {
                         className="gridList"
                         cols={4}
                     >
-                        <Subheader>Data are comming form cssAnimation.JSON File</Subheader>
-                        {tilesData.map((tile) => (
+                        <Subheader>Data are comming form cssAnimation API ()</Subheader>
+                        {dataList.map((tile) => (
                             <GridTile
                                 key={tile.img}
                                 title={tile.title}
