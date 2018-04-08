@@ -18,6 +18,8 @@ import Delete from 'material-ui/svg-icons/action/delete';
 import ContentCopy from 'material-ui/svg-icons/content/content-copy';
 import Download from 'material-ui/svg-icons/file/file-download';
 import FontIcon from 'material-ui/FontIcon';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
 /* Package JSON Import will be here */
 
 /* Styles Import will be here */
@@ -27,14 +29,40 @@ import './navBar.css';
 class NavBar extends Component {
     constructor(props) {
         super(props);
-        this.state = { open: false };
+        this.state = {
+            leftMenuOpen: false,
+            signOutDialog: false
+        };
     }
 
-    handleToggle = () => this.setState({ open: !this.state.open });
+    // Left side menu Event
+    handleToggle = () => this.setState({ leftMenuOpen: !this.state.open });
+    handleClose = () => this.setState({ leftMenuOpen: false });
+    // Left side menu Event
 
-    handleClose = () => this.setState({ open: false });
+    // Signout Dialog
+    handleDialogOpen = () => { this.setState({ signOutDialog: true }); };
+    handleDialogClose = () => { this.setState({ signOutDialog: false }); };
+    // Signout Dialog
 
     render() {
+
+        // Dialog Signout Button
+        const actions = [
+            <FlatButton
+                label="Cancel"
+                primary={true}
+                onClick={this.handleDialogClose}
+            />,
+            <FlatButton
+                label="Submit"
+                primary={true}
+                keyboardFocused={true}
+                onClick={this.handleDialogClose}
+            />,
+        ];
+        // Dialog Signout Button
+
         return (
             <Fragment>
                 <AppBar
@@ -60,8 +88,8 @@ class NavBar extends Component {
                 />
                 <Drawer
                     docked={false}
-                    open={this.state.open}
-                    onRequestChange={(open) => this.setState({ open })}
+                    open={this.state.leftMenuOpen}
+                    onRequestChange={(leftMenuOpen) => this.setState({ leftMenuOpen })}
                 >
                     <Menu>
                         <Link to={'/GetAPI'} className="no-underline">
@@ -73,15 +101,29 @@ class NavBar extends Component {
                         <Link to={'/AddDelete'} className="no-underline">
                             <MenuItem primaryText="Add Delete" leftIcon={<ContentLink />} />
                         </Link>
-                        <Divider />
                         <Link to={'/LottiAnimation'} className="no-underline">
                             <MenuItem primaryText="Lotti Animation" leftIcon={<ContentCopy />} />
                         </Link>
                         <Link to={'/CssAnimation'} className="no-underline">
                             <MenuItem primaryText="CSS Animation" leftIcon={<Download />} />
                         </Link>
+                        <Divider />
+                        <MenuItem
+                            primaryText="Sign Out"
+                            leftIcon={<Download />}
+                            onClick={this.handleDialogOpen}
+                        />
                     </Menu>
                 </Drawer>
+                <Dialog
+                    title="Confirmation"
+                    actions={actions}
+                    modal={false}
+                    open={this.state.signOutDialog}
+                    onRequestClose={this.handleDialogClose}
+                >
+                    Do you want to really Signout
+        </Dialog>
             </Fragment>
         );
     }

@@ -8,3 +8,9 @@ body {
 
 .no-underline {
   text-decoration: none; }
+
+.text-center {
+  text-align: center; }
+
+.m12 {
+  margin: 12px; }
