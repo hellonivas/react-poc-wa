@@ -23,22 +23,6 @@ class CssAnimation extends Component {
         }
     }
 
-    componentWillMount() {
-        // fetch('http://localhost:3001/CssAnimations', {
-        //     method: 'GET',
-        //     headers: {
-        //         'content-type': 'application/json',
-        //         'Accept': 'application/json'
-        //     }
-        // })
-        //     .then(response => response.json())
-        //     .then((response, error) => {
-        //         this.setState({
-        //             dataList: response.tilesData
-        //         });
-        //     });
-    }
-
     render() {
 
         const { dataList } = this.state;

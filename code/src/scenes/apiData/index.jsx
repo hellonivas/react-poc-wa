@@ -13,6 +13,7 @@ import {
     TableRow,
     TableRowColumn,
 } from 'material-ui/Table';
+import CircularProgress from 'material-ui/CircularProgress';
 /* Package JSON Import will be here */
 
 /* Project Import will be here */
@@ -27,12 +28,13 @@ class ApiData extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading:false,
             dataList: []
         }
     }
 
     componentWillMount() {
-        debugger;
+        this.setState({loading:true})
         fetch('https://jsonplaceholder.typicode.com/users', {
             method: 'GET',
             headers: {
@@ -43,7 +45,8 @@ class ApiData extends Component {
             .then(response => response.json())
             .then((response, error) => {
                 this.setState({
-                    dataList: response
+                    dataList: response,
+                    loading:false
                 });
             });
     }
@@ -54,6 +57,9 @@ class ApiData extends Component {
 
         return (
             <Fragment>
+                {
+                    this.state.loading ? <CircularProgress /> : ""
+                }
                 <div className="roots">
                     {
                         dataList.map(data =>

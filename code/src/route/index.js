@@ -10,7 +10,8 @@ import {
     Search,
     AddDelete,
     LottiAnimation,
-    CssAnimation
+    CssAnimation,
+    Details
 } from '../scenes';
 import { NotFound } from '../scenes/sharedComponent';
 /* Project Import will be here */
@@ -24,6 +25,7 @@ const Routers = () => {
                 <Route exact path="/" component={Home} />
                 <Route path="/GetData" component={GetData} />
                 <Route path="/Search" component={Search} />
+                <Route path="/Details/:id" component={Details} />
                 <Route path="/AddDelete" component={AddDelete} />
                 <Route path="/LottiAnimation" component={LottiAnimation} />
                 <Route path="/CssAnimation" component={CssAnimation} />

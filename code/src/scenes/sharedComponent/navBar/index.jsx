@@ -101,9 +101,6 @@ class NavBar extends Component {
                         <Link to={'/AddDelete'} className="no-underline">
                             <MenuItem primaryText="Add Delete" leftIcon={<ContentLink />} />
                         </Link>
-                        <Link to={'/CssAnimation'} className="no-underline">
-                            <MenuItem primaryText="CSS Animation" leftIcon={<Download />} />
-                        </Link>
                         <Divider />
                         <MenuItem
                             primaryText="Sign Out"
