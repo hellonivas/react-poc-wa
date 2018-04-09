@@ -26,7 +26,7 @@ const Routers = () => {
                 <Route path="/GetData" component={GetData} />
                 <Route path="/Search" component={Search} />
                 <Route path="/Details/:id" component={Details} />
-                <Route path="/AddDelete" component={AddDelete} />
+                <Route path="/AddData" component={AddDelete} />
                 <Route path="/LottiAnimation" component={LottiAnimation} />
                 <Route path="/CssAnimation" component={CssAnimation} />
                 {/*------------------------- Common Routing Pages -------------------------*/}

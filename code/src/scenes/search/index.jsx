@@ -1,7 +1,8 @@
 /* Package JSON Import will be here */
 import React, { Component, Fragment } from 'react';
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
 import FileFolder from 'material-ui/svg-icons/file/folder';
@@ -22,10 +23,10 @@ class Search extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            keyword: '',
-            text:''
+            keyword: ''
         }
     }
+
     componentWillMount() {
         this.props.artistsList();
     }
@@ -50,7 +51,7 @@ class Search extends Component {
     }
 
     render() {
-        const { artists, filtered, keyword } = this.state
+        const { keyword } = this.state
         return (
             <Fragment>
                 <NavBar />
@@ -66,7 +67,6 @@ class Search extends Component {
                         }}
                     />
                 </div>
-                <input type="text" value={this.state.text} onChange={(e) => this.setState({ text: e.target.value })} />
                 <List>
                     {this.renderList(this.props.Artists)}
                 </List>
@@ -81,4 +81,8 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, actions)(Search);
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(actions, dispatch)
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));

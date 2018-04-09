@@ -98,8 +98,8 @@ class NavBar extends Component {
                         <Link to={'/Search'} className="no-underline">
                             <MenuItem primaryText="Search" leftIcon={<PersonAdd />} />
                         </Link>
-                        <Link to={'/AddDelete'} className="no-underline">
-                            <MenuItem primaryText="Add Delete" leftIcon={<ContentLink />} />
+                        <Link to={'/AddData'} className="no-underline">
+                            <MenuItem primaryText="Add Data" leftIcon={<ContentLink />} />
                         </Link>
                         <Divider />
                         <MenuItem
