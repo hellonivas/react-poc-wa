@@ -12,7 +12,6 @@ import TextField from 'material-ui/TextField';
 /* Project Import will be here */
 import NavBar from '../sharedComponent/navBar/index.jsx';
 import * as actions from '../../actions/artists_actions'
-import * as ArtistsData from '../../../database/artist.json'
 /* Project Import will be here */
 
 /* Styles Import will be here */
@@ -23,16 +22,15 @@ class Search extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            artists: ArtistsData.artists,
-            filtered: ArtistsData.artists,
-            keyword: ''
+            keyword: '',
+            text:''
         }
     }
     componentWillMount() {
-        this.props.artistsList(ArtistsData);
+        this.props.artistsList();
     }
 
-    renderList = ({ filtered }) => {
+    renderList = (filtered) => {
         if (filtered) {
             return filtered.map((movie, i) => {
                 return (
@@ -51,28 +49,6 @@ class Search extends Component {
         }
     }
 
-    searchArtist = (e) => {
-        console.log(e.target.value);
-        const keyword = e.target.value;
-        this.setState({ keyword });
-        if (keyword !== '') {
-            const list = this.state.artists.filter((item) => {
-                return item.name.toLowerCase().indexOf(keyword.toLowerCase()) > -1
-            });
-            this.setState({
-                filtered: list,
-                keyword
-            });
-
-        }
-        else {
-            this.setState({
-                filtered: this.state.artists,
-                keyword
-            });
-        }
-    }
-
     render() {
         const { artists, filtered, keyword } = this.state
         return (
@@ -84,11 +60,15 @@ class Search extends Component {
                         value={keyword}
                         hintText="Enter text to search"
                         floatingLabelText="Search"
-                        onChange={e => this.searchArtist(e)}
+                        onChange={e => {
+                            this.setState({ keyword: e.target.value })
+                            this.props.search(e.target.value)
+                        }}
                     />
                 </div>
+                <input type="text" value={this.state.text} onChange={(e) => this.setState({ text: e.target.value })} />
                 <List>
-                    {this.renderList(this.state)}
+                    {this.renderList(this.props.Artists)}
                 </List>
             </Fragment>
         );

@@ -1,5 +1,5 @@
 import { combineReducers  } from 'redux';
-import Artists from './movies_reducer';
+import Artists from './artists_reducer';
 
 const RootReducer = combineReducers({
     Artists
